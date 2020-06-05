@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurante GoodFood</title>
+    <link rel="shortcut icon" type="image/png" th:href="@{./images/logoFood.png}"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+    <style>
+        .fondoTransparentado {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        #navbarMenuRestaurante {
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+        }
+
+        .colorLogo {
+            color: #c5093d;
+        }
+    </style>
+</head>
+<body>
+<nav id="navbarMenuRestaurante" class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img th:src="@{./images/logoFood.png}" width="30" height="30" class="d-inline-block align-top" alt=""
+             loading="lazy">
+        GoodFood
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/menu">Menú</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div id="carouselImagesComidas" class="carousel slide w-100" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li th:each="plato: ${listaPlatos}" th:if="${plato.id == 0}" data-target="#carouselImagesComidas"
+            th:attr="data-slide-to=${plato.id}" class="active"></li>
+        <li th:each="plato: ${listaPlatos}" th:unless="${plato.id == 0}" data-target="#carouselImagesComidas"
+            th:attr="data-slide-to=${plato.id}"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div th:each="plato: ${listaPlatos}" th:if="${plato.id == 0}" class="carousel-item active">
+            <img th:src="@{./images/{img} (img=${plato.imagen}) }" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <div class="fondoTransparentado py-2">
+                    <h3 th:text="${plato.nombre}"></h3>
+                    <p th:text="${plato.descripcion}" class="font-weight-bold"></p>
+                </div>
+            </div>
+        </div>
+        <div th:each="plato: ${listaPlatos}" th:unless="${plato.id == 0}" class="carousel-item">
+            <img th:src="@{./images/{img} (img=${plato.imagen}) }" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <div class="fondoTransparentado py-2">
+                    <h3 th:text="${plato.nombre}"></h3>
+                    <p th:text="${plato.descripcion}" class="font-weight-bold"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselImagesComidas" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselImagesComidas" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<div class="container mt-4">
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col">
+            <div class="card" style="width: 20rem;">
+                <img th:src="@{./images/chef1.png}" class="card-img-top" alt="...">
+            </div>
+        </div>
+        <div class="col mx-3">
+            <div class="card" style="width: 20rem;">
+                <img th:src="@{./images/chef2.png}" class="card-img-top" alt="...">
+            </div>
+        </div>
+        <div class="col-5">
+            <p class="display-3 font-weight-bold colorLogo">Restaurante GoodFood</p>
+            <p class="lead">Nacidos por el deseo de alimentar al mundo. Cuidamos al más mínimo cada detalle para
+                hacer de la cena una experiencia extrasensorial. La experiencia será inolvidable.</p>
+            <p class="lead">Horario: Lunes - Sabado <strong>9 AM - 9 PM</strong></p>
+            <p class="h2">+1-124-124-2344</p>
+        </div>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="row">
+        <div class="col">
+            <p class="h1 colorLogo">10</p>
+            <p>YEARS OF EXPERIENCE</p>
+        </div>
+        <div class="col">
+            <p class="h1 colorLogo">100</p>
+            <p>MENUS/DISH</p>
+        </div>
+        <div class="col">
+            <p class="h1 colorLogo">50</p>
+            <p>STAFFS</p>
+        </div>
+        <div class="col">
+            <p class="h1 colorLogo">15000</p>
+            <p>HAPPY COSTUMERS</p>
+        </div>
+        <div class="col">
+            <p>Un pequeño rio llamado Danubio fluye a través de la plaza y nos brinda de su abrazo.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 bg-dark">
+            <div class="container">
+                <div class="row pt-5">
+                    <div class="col"></div>
+                    <div class="col-3">
+                        <p class="text-light font-weight-bold">GoodFood</p>
+                        <p class="text-light">Far far away, behind the word mountains, far from the countries
+                            Vokalia
+                            and Consonantia, there live the blind texts.</p>
+                        <div class="d-flex flex-row">
+                            <div class="p-2"><i class="fab fa-twitter-square text-light"
+                                                style="font-size:38px;"></i>
+                            </div>
+                            <div class="p-2"><i class="fab fa-facebook-square text-light"
+                                                style="font-size:38px;"></i>
+                            </div>
+                            <div class="p-2"><i class="fab fa-instagram-square text-light"
+                                                style="font-size:38px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                    <div class="col-3">
+                        <p class="text-light"><strong>Open Hours</strong></p>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="text-light">Lunes</div>
+                                <div class="text-light">9:00-21:00</div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="text-light">Martes</div>
+                                <div class="text-light">9:00-21:00</div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="text-light">Miércoles</div>
+                                <div class="text-light">9:00-21:00</div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="text-light">Jueves</div>
+                                <div class="text-light">9:00-21:00</div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="text-light">Viernes</div>
+                                <div class="text-light">9:00-21:00</div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between">
+                                <div class="text-light">Sábado</div>
+                                <div class="text-light">9:00-21:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <hr class="my-4">
+
+                <div class="row mb-4">
+                    <div class="col text-center text-secondary">
+                        Pagina desarrollada por Juan Manuel, día 01/06/2020
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>
