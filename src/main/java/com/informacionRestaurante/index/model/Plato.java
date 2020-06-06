@@ -1,7 +1,6 @@
 package com.informacionRestaurante.index.model;
 
 import lombok.*;
-
 import java.util.LinkedList;
 
 @Builder

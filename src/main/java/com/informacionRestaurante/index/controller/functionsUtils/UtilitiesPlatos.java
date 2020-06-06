@@ -1,7 +1,6 @@
 package com.informacionRestaurante.index.controller.functionsUtils;
 
 import com.informacionRestaurante.index.model.Plato;
-
 import java.util.LinkedList;
 
 public class UtilitiesPlatos {
@@ -213,23 +212,6 @@ public class UtilitiesPlatos {
                 .precio(14.00f)
                 .simbolos(simbolos)
                 .build());
-
-        /*simbolos = new LinkedList<String>();
-        simbolos.add("");
-        simbolos.add("");
-        simbolos.add("");
-        simbolos.add("");
-        simbolos.add("");
-        simbolos.add("X");
-
-        listaPlatos.add(Plato.builder()
-                .id(12)
-                .nombre("Calabacines con bechamel de verduras y queso Brie")
-                .descripcion("Plato entrante elaborado con calabacín, puerro, cebolla, zanahoria, pimiento rojo, harina, aceite de oliva, leche, queso Brie, sal y pimienta.")
-                .imagen("calabacinesBechamelVerdurasBrie.jpg")
-                .simbolos(simbolos)
-                .build());
-        */
 
         return listaPlatos;
     }

@@ -15,14 +15,6 @@ public class ControllerHome {
     @GetMapping("/")
     public String showIndex(Model model) {
         LinkedList<Plato> listaPlatos = UtilitiesPlatos.crearPlatos();
-        //LinkedList<Plato> mostrarPlatos = new LinkedList<Plato>();
-
-        /*int valorRandom = (int) Math.floor(Math.random()*(listaPlatos.size()-4 + 1));
-        mostrarPlatos.add(listaPlatos.get(valorRandom));
-        mostrarPlatos.add(listaPlatos.get(valorRandom + 1));
-        mostrarPlatos.add(listaPlatos.get(valorRandom + 2));
-        mostrarPlatos.add(listaPlatos.get(valorRandom + 3));*/
-
         model.addAttribute("listaPlatos", listaPlatos);
         return FilesHTML.INDEX;
     }

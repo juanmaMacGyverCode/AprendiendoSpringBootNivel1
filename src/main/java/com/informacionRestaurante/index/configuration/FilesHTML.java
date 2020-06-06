@@ -4,6 +4,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FilesHTML {
-    public static String INDEX = "index";
-    public static String MENU = "menu";
+    public static final String INDEX = "index";
+    public static final String MENU = "menu";
 }
