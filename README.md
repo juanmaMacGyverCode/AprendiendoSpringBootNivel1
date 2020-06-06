@@ -21,7 +21,7 @@ _Por ahora no tiene pruebas, pero os animo a que colaboreis conmigo_
 
 ## Despliegue 📦
 
-_No es necesario, aunque si quieres ver la aplicación en tu navegador no olvides hacer run en **IndexApplication**_
+_No es necesario, aunque si quieres ver la aplicación en tu navegador no olvides hacer run en **IndexApplication** y en tu navegador preferido **localhost:8080**_
 
 ## Construido con 🛠️
 
