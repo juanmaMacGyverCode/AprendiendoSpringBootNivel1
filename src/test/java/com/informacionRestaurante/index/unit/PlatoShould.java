@@ -9,7 +9,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class PlatoShould {
 
@@ -34,31 +33,10 @@ public class PlatoShould {
                 .build();
 
         // WHEN
-        LinkedList<String> simbolosAssert = new LinkedList<String>();
-        simbolosAssert.add("H");   // Huevo
-        simbolosAssert.add("C");  // Cereales
-        simbolosAssert.add("Aj");  // Ajo
-        simbolosAssert.add("P");   // Picante
-        simbolosAssert.add("Al");   // Almendras
-        simbolosAssert.add("L");   // Leche
-
-        LinkedList<String> simbolosNotAssert = new LinkedList<String>();
-        simbolosNotAssert.add("");   // Huevo
-        simbolosNotAssert.add("C");  // Cereales
-        simbolosNotAssert.add("Aj");  // Ajo
-        simbolosNotAssert.add("P");   // Picante
-        simbolosNotAssert.add("Al");   // Almendras
-        simbolosNotAssert.add("L");   // Leche
 
         // THEN
+        assertNotNull(plato);
         assertThat(plato.getId(), is(0));
-        assertThat(plato.getNombre(), is("Example"));
-        assertThat(plato.getDescripcion(), is("Example"));
-        assertThat(plato.getImagen(), is("Example.jpg"));
-        assertThat(plato.getPrecio(), is(20.0f));
-        assertThat(plato.getSimbolos(), is(simbolosAssert));
-        assertThat(plato.getSimbolos(), is(not(simbolosNotAssert)));
-
     }
 
     @Test
